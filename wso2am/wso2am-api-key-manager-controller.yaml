@@ -29,11 +29,14 @@ spec:
       containers:
       -
         name: wso2am-key-manager
-        image: wso2am-api-key-manager-kubernetes:1.10.0
+        image: dockerhub.private.wso2.com/dimuthud-wso2-am-api-keymanager:1.10.0
         env:
         -
           name: KUBERNETES_MASTER_SKIP_SSL_VERIFICATION
           value: "true"
+        -
+          name: KUBERNETES_API_SERVER
+          value: "http://192.168.57.23:8080"
           # -
           # name: KEY_STORE_PASSWORD
           # value: wso2carbon
@@ -47,3 +50,5 @@ spec:
         -
           containerPort: 10397
           protocol: "TCP"
+      imagePullSecrets:
+       - name: registrypullsecret
