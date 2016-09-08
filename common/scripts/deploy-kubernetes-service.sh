@@ -19,8 +19,8 @@
 
 set -e
 
-profile=$1
-product=${PWD##*/}
+profile=$2
+product=$1
 
 prgdir=$(dirname "$0")
 script_path=$(cd "$prgdir"; pwd)
