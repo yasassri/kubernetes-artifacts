@@ -73,8 +73,8 @@ function getKubeNodeIP() {
 
 # Deploy using default profile
 function default {
-  bash "${common_scripts_folder}/deploy-kubernetes-service.sh" "default" && \
-  bash "${common_scripts_folder}/deploy-kubernetes-rc.sh" "default" && \
+  bash "${common_scripts_folder}/deploy-kubernetes-service.sh" "wso2am" "default" && \
+  bash "${common_scripts_folder}/deploy-kubernetes-rc.sh" "wso2am" "default" && \
   bash "${common_scripts_folder}/wait-until-server-starts.sh" "default" "${1}"
 }
 
