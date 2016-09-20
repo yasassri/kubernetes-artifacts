@@ -24,28 +24,12 @@ product_profiles=(default api-key-manager api-store api-publisher gateway-manage
 
 full_deployment=false
 
-while getopts :f FLAG; do
-    case $FLAG in
-        f)
-            full_deployment=true
-            ;;
-    esac
-done
-
-if [[ ! -z $product_profiles ]]; then
-    for profile in ${product_profiles[@]}; do
-        bash "${common_folder}/undeploy.sh" "$profile"
-    done
-else
-    bash "${common_folder}/undeploy.sh"
-fi
+echo "${common_folder}/undeploy.sh wso2am-default"
+bash "${common_folder}/undeploy.sh" "wso2am-default"
 
 sleep 5
 
-if [ $full_deployment == true ]; then
-    echo "Undeploying MySQL Services and RCs for Conf and Gov remote mounting..."
-    bash $script_path/../common/wso2-shared-dbs/undeploy.sh
-fi
+echo "Undeploying MySQL Services and RCs for Conf and Gov remote mounting..."
+bash $script_path/../common/wso2-shared-dbs/undeploy.sh 
 
-# undeploy DB service, rc and pods
 kubectl delete rc,services,pods -l name="mysql-apim-db"
