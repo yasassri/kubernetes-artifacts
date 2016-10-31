@@ -36,7 +36,7 @@ spec:
           value: "true"
         -
           name: KUBERNETES_API_SERVER
-          value: "http://192.168.57.23:8080"
+          value: "http://192.168.48.24:8080"
           # -
           # name: KEY_STORE_PASSWORD
           # value: wso2carbon
