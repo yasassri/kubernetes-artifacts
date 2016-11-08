@@ -125,6 +125,6 @@ json+="]"
 
 echo $json;
 
-cat > data.json << EOF1
+cat > deployment.json << EOF1
 $json
 EOF1
